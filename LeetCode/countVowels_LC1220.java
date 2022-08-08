@@ -1,3 +1,5 @@
+package LeetCode;
+
 public class countVowels_LC1220 {
     private static final int mod = 1000000007;
     public int countVowelPermutation(int n){
