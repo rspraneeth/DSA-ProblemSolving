@@ -1,3 +1,5 @@
+package LeetCode;
+
 public class LC73_SetMatrixZeroes {
     public static void main(String[] args) {
         int[][] m = {{0, 1, 2, 0}, {3, 4, 5, 2}, {1, 3, 1, 5}};
