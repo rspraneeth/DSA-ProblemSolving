@@ -24,9 +24,8 @@ public class EquilibriumIndex {
 
     /** Using prefix sum array. */
     public static int solve1(ArrayList<Integer> A){
-        int[] pf = new int[A.size()];
-        pf[0] = A.get(0);
-        for (int i = 1; i < A.size(); i++) pf[i] = pf[i-1] + A.get(i);
+        PrefixSumArray pfs = new PrefixSumArray();
+        int[] pf = pfs.pfSumArray(A);
         int left, right;
         for (int i = 0; i < A.size(); i++){
             if (i == 0) {
