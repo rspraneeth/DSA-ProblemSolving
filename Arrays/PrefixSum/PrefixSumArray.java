@@ -10,12 +10,23 @@ public class PrefixSumArray {
         return pf;
     }
 
-    public int[] pfOddEven(ArrayList<Integer> A){
-        int[] pfeo = new int[A.size()];
-        pfeo[0] = A.get(0);
-        pfeo[1] = A.get(1);
-        for (int i = 2; i < A.size(); i++)
-            pfeo[i] = pfeo[i-2] + A.get(i);
-        return pfeo;
+    public int[] pfEven(ArrayList<Integer> A){
+        int[] pfe = new int[A.size()];
+        pfe[0] = A.get(0);
+        for (int i = 1; i < A.size(); i++){
+            if (i % 2 == 1) pfe[i] = pfe[i-1];
+            else pfe[i] = pfe[i-1] + A.get(i);
+        }
+        return pfe;
+    }
+
+    public int[] pfOdd(ArrayList<Integer> A){
+        int[] pfo = new int[A.size()];
+        pfo[0] = 0;
+        for (int i = 1; i < A.size(); i++){
+            if (i % 2 == 0) pfo[i] = pfo[i-1];
+            else pfo[i] = pfo[i-1] + A.get(i);
+        }
+        return pfo;
     }
 }
