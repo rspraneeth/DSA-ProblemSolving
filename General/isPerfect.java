@@ -1,3 +1,5 @@
+package General;
+
 import java.util.Scanner;
 
 public class isPerfect {
@@ -7,7 +9,7 @@ public class isPerfect {
         while(T-- > 0){
             int n = in.nextInt();
             int sum = 0;
-            for(int i = 1; i < n/2 + 1; i++){
+            for(int i = 1; i <= n/2; i++){
                 if(n%i == 0) sum+= i;
                 if(sum > n) break;
             }
