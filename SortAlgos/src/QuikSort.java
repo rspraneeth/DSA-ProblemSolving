@@ -1,6 +1,6 @@
 public class QuikSort {
     public static void main(String[] args) {
-        int[] a = {8, 4, 2, 7, 5, 11, 9, 1};
+        int[] a = {10, 5, 11, 2, 1, 9, 15};
         quick(a, 0, a.length-1);
 
         System.out.println("\n\nAfter Sorting");
@@ -31,11 +31,11 @@ public class QuikSort {
                 a[j] = temp;
             }
         }
-
-        int temp = a[i+1];
-        a[i+1] = a[high];
+        int pi = i+1;
+        int temp = a[pi];
+        a[pi] = a[high];
         a[high] = temp;
 
-        return i+1;
+        return pi;
     }
 }
