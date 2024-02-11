@@ -3,7 +3,7 @@ package Queue;
 class Queue {
     //fifo
     int[] arr = new int[5];
-    private int front, rear;
+    private int front, rear, size=0;
     public Queue(){
         front=0;
         rear=-1;
@@ -11,14 +11,17 @@ class Queue {
 
     public void enqueue(int data){
         rear++;
-        rear = rear%arr.length;
+//        rear = rear%arr.length;
         arr[rear]=data;
+        size++;
         System.out.println("Front:"+front+", Rear:"+rear);
     }
 
-    public void deque(){
-        arr[front++]=0;
+    public int deque(){
+        int data = arr[front];
+        front++;
         System.out.println("Front:"+front+", Rear:"+rear);
+        return data;
     }
 
     public void printQueue() {
@@ -30,6 +33,12 @@ class Queue {
 
         System.out.println(arr[i%arr.length]);
         System.out.println("Front:"+front+", Rear:"+rear);
+    }
+
+    public void show(){
+        for (int i=front; i < size;i++){
+            System.out.print(arr[i]+" ");
+        }
     }
 }
 
