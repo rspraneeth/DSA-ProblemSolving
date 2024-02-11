@@ -10,21 +10,47 @@ class Queue {
     }
 
     public void enqueue(int data){
-        rear++;
-//        rear = rear%arr.length;
-        arr[rear]=data;
-        size++;
-        System.out.println("Front:"+front+", Rear:"+rear);
+        if (!isFull()){
+//            rear++;
+            rear = (rear+1)%arr.length;
+            arr[rear]=data;
+            size++;
+            System.out.println("Front:"+front+", Rear:"+rear);
+        }else {
+            System.out.println("Queue full");
+        }
+
     }
 
     public int deque(){
+        if (isEmpty()){
+            throw new RuntimeException("Queue is empty");
+        }
         int data = arr[front];
-        front++;
+//        front++;
+        front = (front+1)%arr.length;
+        size--;
         System.out.println("Front:"+front+", Rear:"+rear);
         return data;
     }
 
-    public void printQueue() {
+//    public void printQueue() {
+//        int i = front;
+//        while (i%arr.length!=rear){
+//            System.out.print(arr[i%arr.length]+" ");
+//            i++;
+//        }
+//
+//        System.out.println(arr[i%arr.length]);
+//        System.out.println("Front:"+front+", Rear:"+rear);
+//    }
+
+    public void show(){
+//        for (int i=front; i < size;i++){
+//            System.out.print(arr[i]+" ");
+//        }
+//        System.out.println();
+
         int i = front;
         while (i%arr.length!=rear){
             System.out.print(arr[i%arr.length]+" ");
@@ -32,13 +58,15 @@ class Queue {
         }
 
         System.out.println(arr[i%arr.length]);
-        System.out.println("Front:"+front+", Rear:"+rear);
+//        System.out.println("Front:"+front+", Rear:"+rear);
     }
 
-    public void show(){
-        for (int i=front; i < size;i++){
-            System.out.print(arr[i]+" ");
-        }
+    public boolean isEmpty(){
+        return size==0;
+    }
+
+    public boolean isFull(){
+        return size==arr.length;
     }
 }
 
@@ -48,17 +76,25 @@ public class QueueImpl{
         queue.enqueue(3);
         queue.enqueue(6);
         queue.enqueue(8);
-        queue.printQueue();
-        queue.deque();
-        queue.printQueue();
+        queue.show();
+        System.out.println(queue.deque());
+        queue.show();
         queue.enqueue(10);
-        queue.printQueue();
+        queue.show();
         queue.enqueue(14);
-        queue.printQueue();
+        queue.show();
         queue.enqueue(17);
-        queue.printQueue();
-//        queue.enqueue(19);
-//        queue.printQueue();
-
+        queue.show();
+        System.out.println(queue.deque());
+        queue.show();
+        queue.enqueue(19);
+        queue.show();
+        queue.enqueue(22);
+        System.out.println(queue.deque());
+        System.out.println(queue.deque());
+        queue.show();
+        queue.enqueue(25);
+        queue.enqueue(28);
+        queue.show();
     }
 }
