@@ -28,6 +28,7 @@ public class PenStreamMax {
         Map.Entry<Character, Integer> mx = penMap.entrySet().stream().max(Map.Entry.comparingByValue()).orElseThrow();
         Map.Entry<Character, Integer> mn = penMap.entrySet().stream().min(Map.Entry.comparingByValue()).orElseThrow();
 
+
         System.out.println(mx+", "+mn);
     }
 }
