@@ -21,6 +21,20 @@ class RemoveNthEndOfList {
 
     }
 
+//    public static ListNode removeNthElementFromEnd(ListNode head, int n){
+//        int l=0;
+//        if (head==null) return 0;
+//
+//        ListNode cur = head;
+//
+//        while (cur!=null){
+//            l++;
+//            System.out.print(cur.val+" ");
+//            cur = cur.next;
+//
+//        }
+//    }
+
     public static ListNode removeNthFromEnd(ListNode head, int n){
         int len = leng(head);
         int trav = len-n-1;
