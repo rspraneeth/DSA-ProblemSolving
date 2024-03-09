@@ -19,21 +19,32 @@ class RemoveNthEndOfList {
         ListNode head = removeNthFromEnd(l1, 2);
         leng(head);
 
+//        ListNode head = removeNthElementFromEnd(l1, 2);
+//        leng(head);
+
+
     }
 
-//    public static ListNode removeNthElementFromEnd(ListNode head, int n){
-//        int l=0;
-//        if (head==null) return 0;
-//
-//        ListNode cur = head;
-//
-//        while (cur!=null){
-//            l++;
-//            System.out.print(cur.val+" ");
-//            cur = cur.next;
-//
-//        }
-//    }
+    public static ListNode removeNthElementFromEnd(ListNode head, int n){
+        int l=0;
+        if (head==null) return null;
+
+        ListNode cur = head;
+        ListNode diff=head;
+        while (cur!=null){
+            l++;
+            System.out.print(cur.val+" ");
+            cur = cur.next;
+            if (l>n+1) {
+                diff=diff.next;
+            }
+        }
+
+        if (l==1 && n==1) return null;
+
+        diff.next=diff.next.next;
+        return head;
+    }
 
     public static ListNode removeNthFromEnd(ListNode head, int n){
         int len = leng(head);
