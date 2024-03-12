@@ -1,5 +1,3 @@
-package LeetCode;
-
 public class LongestIncSubSeq {
     public static int pos(int[] ar, int l, int h, int x ){
         while (l<=h){
